@@ -26,7 +26,7 @@ router.get(
 );
 
 // New route
-router.get("/listings/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.render("listings/new.ejs");
 });
 
