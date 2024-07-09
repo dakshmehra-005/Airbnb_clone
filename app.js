@@ -64,6 +64,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
   next();
 });
 
@@ -79,7 +80,7 @@ app.use((req, res, next) => {
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews/", reviewRouter);
-app.use("/",userRouter)
+app.use("/", userRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "page not found!"));
@@ -93,4 +94,3 @@ app.use((err, req, res, next) => {
 app.listen(3030, () => {
   console.log("app is listing on the 3030");
 });
-     

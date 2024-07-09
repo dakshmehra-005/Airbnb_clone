@@ -10,17 +10,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/listings">All listing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/listings/new">Create new listing</a>
-        </li>
-      </ul>
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/listings">All listing</a>
+        <a class="nav-link" href="/listings/new">Create new listing</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if (!currUser){ %>
+        <a class="nav-link" href="/signup">SignUp</a>
+        <a class="nav-link" href="/login">Login</a>
+        <% } %> <% if (currUser){ %>
+        <a class="nav-link" href="/logout">Logout</a>
+        <% } %>
+      </div>
     </div>
   </div>
 </nav>
